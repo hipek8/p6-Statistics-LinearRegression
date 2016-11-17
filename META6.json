@@ -1,0 +1,17 @@
+{
+  "authors" : [
+    "pawel szulc"
+  ],
+  "build-depends" : [ ],
+  "depends" : [ ],
+  "description" : "simple linear regression",
+  "name" : "Statistics::LinearRegression",
+  "perl" : "6.c",
+  "provides" : {
+    "Statistics::LinearRegression" : "lib/Statistics/LinearRegression.pm6"
+  },
+  "resources" : [ ],
+  "source-url" : "",
+  "test-depends" : [ "Test"],
+  "version" : "1.0.0"
+}
