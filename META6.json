@@ -13,7 +13,8 @@
   "resources" : [ ],
   "source-url" : "git://github.com/hipek8/p6-Statistics-LinearRegression.git",
   "test-depends" : [
-    "Test"
+    "Test",
+    "Test::META"
   ],
   "version" : "1.0.0"
 }
