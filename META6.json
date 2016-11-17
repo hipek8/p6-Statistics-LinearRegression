@@ -1,6 +1,6 @@
 {
   "authors" : [
-    "pawel szulc"
+    "Pawe\u0142 Szulc"
   ],
   "build-depends" : [ ],
   "depends" : [ ],
@@ -11,7 +11,9 @@
     "Statistics::LinearRegression" : "lib/Statistics/LinearRegression.pm6"
   },
   "resources" : [ ],
-  "source-url" : "",
-  "test-depends" : [ "Test"],
+  "source-url" : "git://github.com/hipek8/p6-Statistics-LinearRegression.git",
+  "test-depends" : [
+    "Test"
+  ],
   "version" : "1.0.0"
 }

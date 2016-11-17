@@ -1,7 +1,3 @@
-os:
-  - linux
-  - osx
-  - windows
 language: perl6
 perl6:
   - latest
