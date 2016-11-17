@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hipek8/p6-Statistics-LinearRegression.svg?branch=master)](https://travis-ci.org/hipek8/p6-Statistics-LinearRegression)
+
 NAME
 ====
 
@@ -20,6 +22,20 @@ Or use dummy OO
 
     my $x = 15;
     my $y = my LR.new(@arguments, @values).at($x);
+
+DESCRIPTION
+===========
+
+LinearRegression finds slope and intercept parameters of linear function by minimizing mean square error.
+
+Value at y is calculated using `y = slope × x + intercept`
+
+TODO
+====
+
+  * R^2 and p-value calculation 
+
+  * support for other objective functions
 
 AUTHOR
 ======

@@ -2,41 +2,45 @@ use v6;
 unit class Statistics::LinearRegression;
 
 sub calc-slope(@x, @y) {
-  my $n = +@x * [+](@x Z* @y) - [+](@x)*[+](@y);
-  my $d = +@x * [+](@x >>**>> 2) - [+](@x)**2;
-  $n/$d;
+    my $n = +@x * [+](@x Z* @y) - [+](@x)*[+](@y);
+    my $d = +@x * [+](@x >>**>> 2) - [+](@x)**2;
+    $n/$d;
 }
 
 sub calc-intercept(@x, @y, $slope) {
-  ([+](@y) - $slope * [+](@x)) / @x;
+    ([+](@y) - $slope * [+](@x)) / @x;
 }
 
 sub get-parameters(@x, @y) is export {
-  my $slope = calc-slope(@x,@y);
-  my $intercept = calc-intercept(@x,@y,$slope);
-  return ($slope, $intercept);
+    my $slope = calc-slope(@x,@y);
+    my $intercept = calc-intercept(@x,@y,$slope);
+    return ($slope, $intercept);
 }
 
 sub value-at($x, $slope, $intercept) is export {
-  $x*$slope + $intercept;
+    $x*$slope + $intercept;
 }
 
 class LR is export {
-  has $.slope;
-  has $.intercept;
+    has $.slope;
+    has $.intercept;
 
-  multi method new( @x, @y) {
-    my ($slope, $intercept) = get-parameters(@x,@y);
-    self.bless(:$slope, :$intercept);
-  }
+    multi method new( @x, @y) {
+        my ($slope, $intercept) = get-parameters(@x,@y);
+        self.bless(:$slope, :$intercept);
+    }
 
-  multi method new($slope, $intercept) {
-    self.bless(:$slope, :$intercept);
-  }
+    multi method new($slope, $intercept) {
+        self.bless(:$slope, :$intercept);
+    }
 
-  method at($x) {
-    value-at($x, $.slope, $.intercept);
-  }
+    method get-parameters() {
+        ($.slope, $.intercept);
+    }
+
+    method at($x) {
+        value-at($x, $.slope, $.intercept);
+    }
 
 }
 =begin pod
@@ -61,6 +65,17 @@ Or use dummy OO
 
   my $x = 15;
   my $y = my LR.new(@arguments, @values).at($x);
+
+=head1 DESCRIPTION
+
+LinearRegression finds slope and intercept parameters of linear function by minimizing mean square error.
+
+Value at y is calculated using C<y = slope × x + intercept>
+
+=head1 TODO
+
+=item R^2 and p-value calculation 
+=item support for other objective functions
 
 =head1 AUTHOR
 
