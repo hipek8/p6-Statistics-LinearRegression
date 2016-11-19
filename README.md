@@ -8,20 +8,23 @@ Statistics::LinearRegression - simple linear regression
 SYNOPSIS
 ========
 
-    use Statistics::LinearRegression;
+Gather some data
+
     my @arguments = 1,2,3;
     my @values = 3,2,1;
 
-Build model and predict value for some x
+Build model and predict value for some x using object
 
+    use Statistics::LinearRegression;
+    my $x = 15;
+    my $y = my LR.new(@arguments, @values).at($x);
+
+If you prefer bare functions, use :ALL
+
+    use Statistics::LinearRegression :ALL;
     my ($slope, $intercept) = get-parameters(@arguments, @values);
     my $x = 15;
     my $y = value-at($x, $slope, $intercept);
-
-Or use dummy OO
-
-    my $x = 15;
-    my $y = my LR.new(@arguments, @values).at($x);
 
 DESCRIPTION
 ===========
@@ -36,6 +39,11 @@ TODO
   * R^2 and p-value calculation 
 
   * support for other objective functions
+
+CHANGES
+=======
+
+  * 1.1.0 LR class exported by default, bare subroutines need :ALL
 
 AUTHOR
 ======

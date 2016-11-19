@@ -1,6 +1,6 @@
 use v6;
 use Test;
-use Statistics::LinearRegression;
+use Statistics::LinearRegression :ALL;
 
 my @x = 1,2,3;
 my @y = 2,4,6;
